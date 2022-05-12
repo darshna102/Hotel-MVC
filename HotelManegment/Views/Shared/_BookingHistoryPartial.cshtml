@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HotelManegment.ViewModel.RoomBookingViewModel>
+
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Booking Form
+            </th>
+            <th>
+                Bookin To
+            </th>
+            <th>
+                Room
+            </th>
+            <th>
+                Number Of Member
+            </th>
+            <th>
+                Number Of Days
+            </th>
+            <th>
+                Room Price
+            </th>
+            <th>
+                Total Amount
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CustomerName
+                </td>
+                <td>
+                    @item.CustomerAddress
+                </td>
+                <td>
+                    @item.CustomerPhone
+                </td>
+                <td>
+                    @item.BookingForm.ToString(format: "dd-MM-yyyy")
+                <td>
+                    @item.BookingTo.ToString(format: "dd-MM-yyyy")
+                </td>
+
+                <td>
+                    @item.RoomNumber
+                </td>
+                <td>
+                    @item.NoOfMembers
+                </td>
+                <td>
+                    @item.NumberOfDays
+                </td>
+                <td>
+                    @item.RoomPrice.ToString(format: "#,##0.00")
+                </td>
+                <td>
+                    @item.TotalAmount.ToString(format: "#,##0.00")
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@*@Html.PagedListPager(Model,page => Url.Action("Index", new { page }))*@
